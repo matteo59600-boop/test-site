@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mattéo — Création de sites web pour indépendants & PME</title>
     <meta name="description" content="Sites web sur-mesure, élégants et efficaces, livrés en moins de 3 semaines. Pour artisans, indépendants et petites entreprises.">
- 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
- 
+
     <style>
         :root {
             --cream: #f7f2e8;
@@ -24,10 +24,10 @@
             --serif: 'Fraunces', serif;
             --sans: 'Geist', -apple-system, sans-serif;
         }
- 
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
- 
+
         body {
             font-family: var(--sans);
             background: var(--cream);
@@ -37,15 +37,15 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
- 
+
         .container {
             max-width: 1180px;
             margin: 0 auto;
             padding: 0 32px;
         }
- 
+
         ::selection { background: var(--accent); color: var(--cream); }
- 
+
         /* NAV */
         nav {
             position: fixed;
@@ -101,7 +101,7 @@
             margin: 5px auto;
             transition: 0.3s;
         }
- 
+
         /* HERO */
         .hero { padding: 160px 0 100px; position: relative; }
         .status {
@@ -137,7 +137,7 @@
             0% { transform: scale(1); opacity: 0.3; }
             100% { transform: scale(2.2); opacity: 0; }
         }
- 
+
         .hero h1 {
             font-family: var(--serif);
             font-size: clamp(2.8rem, 7vw, 6rem);
@@ -156,7 +156,7 @@
             line-height: 1.55;
         }
         .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
- 
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -175,7 +175,7 @@
         .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
         .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
         .btn-ghost:hover { background: var(--ink); color: var(--cream); }
- 
+
         /* MARQUEE */
         .marquee {
             border-top: 1px solid var(--line);
@@ -209,7 +209,7 @@
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
- 
+
         /* SECTIONS */
         section { padding: 110px 0; position: relative; }
         .section-head { margin-bottom: 64px; max-width: 800px; }
@@ -230,7 +230,7 @@
         }
         .section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
         .section-intro { font-size: 1.1rem; color: var(--muted); max-width: 600px; }
- 
+
         /* RÉALISATIONS */
         .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
         .work {
@@ -295,7 +295,7 @@
             color: var(--cream);
             z-index: 3;
         }
- 
+
         /* ABOUT */
         .about { border-top: 1px solid var(--line); }
         .about-grid {
@@ -321,7 +321,7 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
- 
+
         /* SERVICES */
         .services { background: var(--ink); color: var(--cream); }
         .services .section-eyebrow { color: var(--accent-soft); }
@@ -418,7 +418,7 @@
             transition: border-color 0.2s, color 0.2s;
         }
         .service-cta:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
- 
+
         /* MÉTHODE */
         .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
         .step { border-top: 1px solid var(--ink); padding-top: 24px; }
@@ -437,7 +437,7 @@
             line-height: 1.2;
         }
         .step p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
- 
+
         /* FAQ */
         .faq { border-top: 1px solid var(--line); }
         .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
@@ -478,7 +478,7 @@
             line-height: 1.65;
         }
         .faq-item.open .faq-answer { max-height: 300px; margin-top: 16px; }
- 
+
         /* CONTACT */
         .contact {
             background: var(--ink);
@@ -524,7 +524,7 @@
         .contact .btn-primary:hover { background: var(--accent); color: var(--cream); }
         .contact .btn-ghost { color: var(--cream); border-color: var(--cream); }
         .contact .btn-ghost:hover { background: var(--cream); color: var(--ink); }
- 
+
         /* FOOTER */
         footer { border-top: 1px solid var(--line); padding: 50px 0 40px; }
         .footer-grid {
@@ -567,7 +567,7 @@
             font-size: 0.85rem;
             color: var(--muted);
         }
- 
+
         /* ANIMATIONS */
         .reveal {
             opacity: 0;
@@ -579,14 +579,14 @@
         .reveal-3 { animation-delay: 0.4s; }
         .reveal-4 { animation-delay: 0.55s; }
         @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
- 
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
- 
+
         /* RESPONSIVE */
         @media (max-width: 880px) {
             .container { padding: 0 22px; }
@@ -614,25 +614,25 @@
             .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 5px); }
             .menu-toggle.active span:nth-child(2) { opacity: 0; }
             .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
- 
+
             .hero { padding: 130px 0 70px; }
             section { padding: 80px 0; }
             .section-head { margin-bottom: 48px; }
- 
+
             .works-grid { grid-template-columns: 1fr; gap: 20px; }
             .work { aspect-ratio: 4 / 3.5; }
             .work-content { padding: 28px; }
             .work-title { font-size: 1.7rem; }
- 
+
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .services-grid { grid-template-columns: 1fr; }
             .method-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
             .faq-grid { grid-template-columns: 1fr; gap: 32px; }
- 
+
             .contact { padding: 64px 28px; margin: 60px 0 80px; border-radius: 18px; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
             .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
- 
+
             .marquee-item { font-size: 1.3rem; gap: 40px; }
             .marquee-track { gap: 40px; }
         }
@@ -645,7 +645,7 @@
     </style>
 </head>
 <body>
- 
+
     <nav id="navbar">
         <a href="#" class="logo">Mattéo</a>
         <ul id="menu">
@@ -659,7 +659,7 @@
             <span></span><span></span><span></span>
         </button>
     </nav>
- 
+
     <header class="hero">
         <div class="container">
             <div class="status reveal reveal-1">
@@ -674,7 +674,7 @@
             </div>
         </div>
     </header>
- 
+
     <div class="marquee">
         <div class="marquee-track">
             <span class="marquee-item">Sites vitrines</span>
@@ -691,7 +691,7 @@
             <span class="marquee-item">Hébergement inclus</span>
         </div>
     </div>
- 
+
     <section id="works">
         <div class="container">
             <div class="section-head fade-in">
@@ -699,7 +699,7 @@
                 <h2 class="section-title">Quelques projets <em>récents</em>.</h2>
                 <p class="section-intro">Une sélection de sites livrés ces derniers mois. Chaque projet est conçu sur-mesure selon l'identité et les objectifs du client.</p>
             </div>
- 
+
             <div class="works-grid">
                 <article class="work fade-in">
                     <div class="work-year">2026</div>
@@ -711,7 +711,7 @@
                         </div>
                     </div>
                 </article>
- 
+
                 <article class="work fade-in">
                     <div class="work-year">2026</div>
                     <div class="work-content">
@@ -722,7 +722,7 @@
                         </div>
                     </div>
                 </article>
- 
+
                 <article class="work fade-in">
                     <div class="work-year">2025</div>
                     <div class="work-content">
@@ -733,7 +733,7 @@
                         </div>
                     </div>
                 </article>
- 
+
                 <article class="work fade-in">
                     <div class="work-year">2025</div>
                     <div class="work-content">
@@ -747,7 +747,7 @@
             </div>
         </div>
     </section>
- 
+
     <section class="about" id="about">
         <div class="container">
             <div class="section-head fade-in">
@@ -780,7 +780,7 @@
             </div>
         </div>
     </section>
- 
+
     <section class="services" id="services">
         <div class="container">
             <div class="section-head fade-in">
@@ -788,7 +788,7 @@
                 <h2 class="section-title">Trois formules claires.<br>Une seule promesse&nbsp;: <em>la qualité.</em></h2>
                 <p class="section-intro">Que vous lanciez une activité, modernisiez votre image ou construisiez votre crédibilité en ligne, voici comment je peux vous aider.</p>
             </div>
- 
+
             <div class="services-grid">
                 <article class="service-card">
                     <div class="service-num">01 / Essentiel</div>
@@ -806,7 +806,7 @@
                     </ul>
                     <a href="#contact" class="service-cta">Choisir cette formule →</a>
                 </article>
- 
+
                 <article class="service-card featured">
                     <div class="service-num">02 / Recommandé</div>
                     <h3>Site vitrine</h3>
@@ -823,7 +823,7 @@
                     </ul>
                     <a href="#contact" class="service-cta">Choisir cette formule →</a>
                 </article>
- 
+
                 <article class="service-card">
                     <div class="service-num">03 / Complet</div>
                     <h3>Vitrine & Blog</h3>
@@ -843,14 +843,14 @@
             </div>
         </div>
     </section>
- 
+
     <section id="methode">
         <div class="container">
             <div class="section-head fade-in">
                 <div class="section-eyebrow">— Méthode</div>
                 <h2 class="section-title">Une méthode en quatre temps, pensée pour vous faire <em>gagner du temps</em>.</h2>
             </div>
- 
+
             <div class="method-grid">
                 <div class="step fade-in">
                     <div class="step-num">— Étape 01</div>
@@ -875,7 +875,7 @@
             </div>
         </div>
     </section>
- 
+
     <section class="faq" id="faq">
         <div class="container">
             <div class="faq-grid">
@@ -884,7 +884,7 @@
                     <h2 class="section-title">Tout ce que vous voulez savoir <em>avant de commencer</em>.</h2>
                     <p class="section-intro" style="margin-top: 24px;">Une question qui n'apparaît pas ici ? Écrivez-moi directement, je réponds sous 24h.</p>
                 </div>
- 
+
                 <div class="faq-list fade-in">
                     <div class="faq-item">
                         <div class="faq-question">
@@ -893,7 +893,7 @@
                         </div>
                         <div class="faq-answer">Entre 7 jours pour une landing page et 4 semaines pour un site complet avec blog. Le délai dépend principalement de votre réactivité sur la validation des étapes et de la réception de vos contenus (textes, photos).</div>
                     </div>
- 
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Et si je n'ai ni textes ni photos&nbsp;?</span>
@@ -901,7 +901,7 @@
                         </div>
                         <div class="faq-answer">Pas de problème. Je peux rédiger les textes à partir d'un brief simple et utiliser des banques d'images professionnelles libres de droits. Pour des photos de votre activité, je peux aussi vous recommander un photographe local.</div>
                     </div>
- 
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Pourrai-je modifier mon site moi-même&nbsp;?</span>
@@ -909,7 +909,7 @@
                         </div>
                         <div class="faq-answer">Oui. Selon la formule, vous disposez soit d'une interface simple pour modifier vos textes et images, soit d'un espace blog complet. Je vous forme à l'utilisation lors de la livraison, et vous recevez un guide écrit.</div>
                     </div>
- 
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Quels sont les coûts récurrents&nbsp;?</span>
@@ -917,7 +917,7 @@
                         </div>
                         <div class="faq-answer">L'hébergement est gratuit la première année. Ensuite, comptez environ 12 € / an pour le nom de domaine. Aucun autre frais caché, aucun engagement de maintenance forcée.</div>
                     </div>
- 
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Le site sera-t-il bien référencé sur Google&nbsp;?</span>
@@ -925,7 +925,7 @@
                         </div>
                         <div class="faq-answer">Tous mes sites sont optimisés SEO dès la livraison (balises, vitesse, mobile-first, structure sémantique). Pour un référencement local fort, prévoyez 2 à 3 mois après la mise en ligne et idéalement une stratégie de contenu via le blog.</div>
                     </div>
- 
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <span>Et si je veux ajouter une fonctionnalité plus tard&nbsp;?</span>
@@ -937,7 +937,7 @@
             </div>
         </div>
     </section>
- 
+
     <div class="container">
         <section class="contact" id="contact">
             <div class="section-eyebrow" style="margin-top: 20px;">— Contact</div>
@@ -949,7 +949,7 @@
             </div>
         </section>
     </div>
- 
+
     <div class="container">
         <footer>
             <div class="footer-grid">
@@ -981,13 +981,13 @@
             </div>
         </footer>
     </div>
- 
+
     <script>
         const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 20);
         });
- 
+
         const menuToggle = document.getElementById('menuToggle');
         const menu = document.getElementById('menu');
         menuToggle.addEventListener('click', () => {
@@ -1000,13 +1000,13 @@
                 menuToggle.classList.remove('active');
             });
         });
- 
+
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 item.classList.toggle('open');
             });
         });
- 
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1015,10 +1015,9 @@
                 }
             });
         }, { threshold: 0.15 });
- 
+
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
- 
+
 </body>
 </html>
- 
