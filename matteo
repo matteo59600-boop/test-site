@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattéo — Création de sites web pour indépendants & PME</title>
+    <meta name="description" content="Sites web sur-mesure, élégants et efficaces, livrés en moins de 3 semaines. Pour artisans, indépendants et petites entreprises.">
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+ 
+    <style>
+        :root {
+            --cream: #f7f2e8;
+            --cream-soft: #f0e9d8;
+            --ink: #1a1a1a;
+            --ink-soft: #232323;
+            --muted: #6b6256;
+            --accent: #c44a25;
+            --accent-soft: #d97757;
+            --line: #e8dfd0;
+            --line-dark: #2a2a2a;
+            --serif: 'Fraunces', serif;
+            --sans: 'Geist', -apple-system, sans-serif;
+        }
+ 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+ 
+        body {
+            font-family: var(--sans);
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+ 
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+ 
+        ::selection { background: var(--accent); color: var(--cream); }
+ 
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(247, 242, 232, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s, padding 0.3s;
+        }
+        nav.scrolled { border-bottom-color: var(--line); padding: 14px 32px; }
+        nav .logo {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 500;
+            font-style: italic;
+            text-decoration: none;
+            color: var(--ink);
+        }
+        nav ul { list-style: none; display: flex; gap: 36px; align-items: center; }
+        nav a { color: var(--ink); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.2s; }
+        nav a:hover { color: var(--accent); }
+        nav .cta {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            transition: background 0.2s, transform 0.2s;
+        }
+        nav .cta:hover { background: var(--accent); color: var(--cream); transform: translateY(-1px); }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            position: relative;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--ink);
+            margin: 5px auto;
+            transition: 0.3s;
+        }
+ 
+        /* HERO */
+        .hero { padding: 160px 0 100px; position: relative; }
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            background: rgba(196, 74, 37, 0.08);
+            border: 1px solid rgba(196, 74, 37, 0.2);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            color: var(--accent);
+            margin-bottom: 36px;
+            font-weight: 500;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: relative;
+        }
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+ 
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.8rem, 7vw, 6rem);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            margin-bottom: 40px;
+            max-width: 950px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+        .hero-lead {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 580px;
+            margin-bottom: 48px;
+            line-height: 1.55;
+        }
+        .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+ 
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+            font-family: var(--sans);
+        }
+        .btn-primary { background: var(--ink); color: var(--cream); }
+        .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+        .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+        .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+ 
+        /* MARQUEE */
+        .marquee {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 28px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .marquee-track {
+            display: flex;
+            animation: scroll 35s linear infinite;
+            gap: 60px;
+            white-space: nowrap;
+        }
+        .marquee-item {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .marquee-item::after {
+            content: '✦';
+            color: var(--accent);
+            font-style: normal;
+            font-size: 1rem;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+ 
+        /* SECTIONS */
+        section { padding: 110px 0; position: relative; }
+        .section-head { margin-bottom: 64px; max-width: 800px; }
+        .section-eyebrow {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+        .section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+        .section-intro { font-size: 1.1rem; color: var(--muted); max-width: 600px; }
+ 
+        /* RÉALISATIONS */
+        .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .work {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: transform 0.4s;
+            background: var(--ink);
+        }
+        .work:hover { transform: translateY(-4px); }
+        .work:nth-child(1) { background: linear-gradient(135deg, #c44a25 0%, #8a2f15 100%); }
+        .work:nth-child(2) { background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%); }
+        .work:nth-child(3) { background: linear-gradient(135deg, #5d4e37 0%, #2c2416 100%); }
+        .work:nth-child(4) { background: linear-gradient(135deg, #3d5a47 0%, #1f2e25 100%); }
+        .work::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .work-content {
+            position: absolute;
+            inset: 0;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--cream);
+            z-index: 2;
+        }
+        .work-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(247, 242, 232, 0.15);
+            border: 1px solid rgba(247, 242, 232, 0.25);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            backdrop-filter: blur(6px);
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .work-title {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+        .work-desc { font-size: 0.95rem; opacity: 0.75; max-width: 380px; }
+        .work-year {
+            position: absolute;
+            top: 36px;
+            right: 36px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: var(--cream);
+            z-index: 3;
+        }
+ 
+        /* ABOUT */
+        .about { border-top: 1px solid var(--line); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .about-grid p { font-size: 1.1rem; color: var(--ink); margin-bottom: 20px; line-height: 1.7; }
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
+        .stat { border-top: 1px solid var(--line); padding-top: 20px; }
+        .stat-num {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+ 
+        /* SERVICES */
+        .services { background: var(--ink); color: var(--cream); }
+        .services .section-eyebrow { color: var(--accent-soft); }
+        .services .section-intro { color: #a8a094; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--line-dark);
+            border: 1px solid var(--line-dark);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .service-card {
+            background: var(--ink);
+            padding: 44px 32px;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s;
+            position: relative;
+        }
+        .service-card.featured { background: var(--ink-soft); }
+        .service-card.featured::before {
+            content: 'Le plus demandé';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.75rem;
+            color: var(--accent-soft);
+            padding: 4px 10px;
+            background: rgba(217, 119, 87, 0.1);
+            border: 1px solid rgba(217, 119, 87, 0.3);
+            border-radius: 999px;
+        }
+        .service-card:hover { background: var(--ink-soft); }
+        .service-num {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--accent-soft);
+            margin-bottom: 28px;
+        }
+        .service-card h3 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .service-card > p {
+            color: #a8a094;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .service-price {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line-dark);
+        }
+        .service-price small {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            color: #a8a094;
+            display: block;
+            margin-bottom: 2px;
+            font-style: normal;
+        }
+        .service-features { list-style: none; margin-bottom: 28px; }
+        .service-features li {
+            font-size: 0.9rem;
+            padding: 7px 0;
+            color: #cfc6b8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .service-features li::before { content: '→'; color: var(--accent-soft); font-size: 0.9rem; }
+        .service-cta {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(247, 242, 232, 0.3);
+            padding-bottom: 4px;
+            align-self: flex-start;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .service-cta:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
+ 
+        /* MÉTHODE */
+        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .step { border-top: 1px solid var(--ink); padding-top: 24px; }
+        .step-num {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+        .step h4 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .step p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+ 
+        /* FAQ */
+        .faq { border-top: 1px solid var(--line); }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+        .faq-list { display: flex; flex-direction: column; }
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+            padding: 24px 0;
+            cursor: pointer;
+        }
+        .faq-item:first-child { border-top: 1px solid var(--line); }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--ink);
+            transition: color 0.2s;
+        }
+        .faq-item:hover .faq-question { color: var(--accent); }
+        .faq-toggle {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; margin-top: 16px; }
+ 
+        /* CONTACT */
+        .contact {
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: 28px;
+            padding: 100px 64px;
+            margin: 80px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact::before {
+            content: '✦';
+            position: absolute;
+            font-family: var(--serif);
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent-soft);
+            font-size: 1.4rem;
+        }
+        .contact .section-eyebrow { color: var(--accent-soft); }
+        .contact h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 28px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact h2 em { font-style: italic; color: var(--accent-soft); font-weight: 300; }
+        .contact p {
+            font-size: 1.15rem;
+            color: #a8a094;
+            max-width: 540px;
+            margin: 0 auto 48px;
+        }
+        .contact-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .contact .btn-primary { background: var(--cream); color: var(--ink); }
+        .contact .btn-primary:hover { background: var(--accent); color: var(--cream); }
+        .contact .btn-ghost { color: var(--cream); border-color: var(--cream); }
+        .contact .btn-ghost:hover { background: var(--cream); color: var(--ink); }
+ 
+        /* FOOTER */
+        footer { border-top: 1px solid var(--line); padding: 50px 0 40px; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        .footer-brand {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+        .footer-tagline { color: var(--muted); font-size: 0.95rem; max-width: 320px; }
+        .footer-col h5 {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            border-top: 1px solid var(--line);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+ 
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: reveal 0.9s ease-out forwards;
+        }
+        .reveal-1 { animation-delay: 0.1s; }
+        .reveal-2 { animation-delay: 0.25s; }
+        .reveal-3 { animation-delay: 0.4s; }
+        .reveal-4 { animation-delay: 0.55s; }
+        @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+ 
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+ 
+        /* RESPONSIVE */
+        @media (max-width: 880px) {
+            .container { padding: 0 22px; }
+            nav { padding: 16px 22px; }
+            nav.scrolled { padding: 12px 22px; }
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 80%;
+                max-width: 320px;
+                background: var(--cream);
+                flex-direction: column;
+                justify-content: center;
+                gap: 32px;
+                padding: 40px;
+                transform: translateX(100%);
+                transition: transform 0.35s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.08);
+            }
+            nav ul.open { transform: translateX(0); }
+            nav ul a { font-size: 1.3rem; font-family: var(--serif); }
+            .menu-toggle { display: block; z-index: 101; }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 5px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
+ 
+            .hero { padding: 130px 0 70px; }
+            section { padding: 80px 0; }
+            .section-head { margin-bottom: 48px; }
+ 
+            .works-grid { grid-template-columns: 1fr; gap: 20px; }
+            .work { aspect-ratio: 4 / 3.5; }
+            .work-content { padding: 28px; }
+            .work-title { font-size: 1.7rem; }
+ 
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .method-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+ 
+            .contact { padding: 64px 28px; margin: 60px 0 80px; border-radius: 18px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+ 
+            .marquee-item { font-size: 1.3rem; gap: 40px; }
+            .marquee-track { gap: 40px; }
+        }
+        @media (max-width: 520px) {
+            .method-grid { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr; gap: 20px; }
+            .hero-actions { width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+ 
+    <nav id="navbar">
+        <a href="#" class="logo">Mattéo</a>
+        <ul id="menu">
+            <li><a href="#works">Réalisations</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="cta">Me contacter</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+ 
+    <header class="hero">
+        <div class="container">
+            <div class="status reveal reveal-1">
+                <span class="status-dot"></span>
+                Disponible pour de nouveaux projets · 2026
+            </div>
+            <h1 class="reveal reveal-2">Des sites web <em>simples, élégants</em> et livrés en moins de trois semaines.</h1>
+            <p class="hero-lead reveal reveal-3">Je conçois et développe des sites sur-mesure pour les indépendants, artisans et petites entreprises qui veulent une présence en ligne soignée, sans complexité ni jargon technique.</p>
+            <div class="hero-actions reveal reveal-4">
+                <a href="#contact" class="btn btn-primary">Discuter de votre projet →</a>
+                <a href="#works" class="btn btn-ghost">Voir mes réalisations</a>
+            </div>
+        </div>
+    </header>
+ 
+    <div class="marquee">
+        <div class="marquee-track">
+            <span class="marquee-item">Sites vitrines</span>
+            <span class="marquee-item">Landing pages</span>
+            <span class="marquee-item">Refontes</span>
+            <span class="marquee-item">Identité visuelle</span>
+            <span class="marquee-item">SEO local</span>
+            <span class="marquee-item">Hébergement inclus</span>
+            <span class="marquee-item">Sites vitrines</span>
+            <span class="marquee-item">Landing pages</span>
+            <span class="marquee-item">Refontes</span>
+            <span class="marquee-item">Identité visuelle</span>
+            <span class="marquee-item">SEO local</span>
+            <span class="marquee-item">Hébergement inclus</span>
+        </div>
+    </div>
+ 
+    <section id="works">
+        <div class="container">
+            <div class="section-head fade-in">
+                <div class="section-eyebrow">— Réalisations</div>
+                <h2 class="section-title">Quelques projets <em>récents</em>.</h2>
+                <p class="section-intro">Une sélection de sites livrés ces derniers mois. Chaque projet est conçu sur-mesure selon l'identité et les objectifs du client.</p>
+            </div>
+ 
+            <div class="works-grid">
+                <article class="work fade-in">
+                    <div class="work-year">2026</div>
+                    <div class="work-content">
+                        <span class="work-tag">Site vitrine</span>
+                        <div>
+                            <h3 class="work-title">Maison Léon</h3>
+                            <p class="work-desc">Boulangerie artisanale — vitrine 5 pages, carte interactive, formulaire de réservation.</p>
+                        </div>
+                    </div>
+                </article>
+ 
+                <article class="work fade-in">
+                    <div class="work-year">2026</div>
+                    <div class="work-content">
+                        <span class="work-tag">Landing page</span>
+                        <div>
+                            <h3 class="work-title">Studio Helia</h3>
+                            <p class="work-desc">Coach en développement personnel — landing de conversion, intégration calendrier.</p>
+                        </div>
+                    </div>
+                </article>
+ 
+                <article class="work fade-in">
+                    <div class="work-year">2025</div>
+                    <div class="work-content">
+                        <span class="work-tag">Refonte</span>
+                        <div>
+                            <h3 class="work-title">Cabinet Vernet & Associés</h3>
+                            <p class="work-desc">Cabinet d'expertise comptable — refonte complète, nouveau positionnement, SEO local.</p>
+                        </div>
+                    </div>
+                </article>
+ 
+                <article class="work fade-in">
+                    <div class="work-year">2025</div>
+                    <div class="work-content">
+                        <span class="work-tag">Vitrine + Blog</span>
+                        <div>
+                            <h3 class="work-title">Atelier Bois & Fil</h3>
+                            <p class="work-desc">Artisan ébéniste — vitrine portfolio, blog éditorial, formulaire devis.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-head fade-in">
+                <div class="section-eyebrow">— À propos</div>
+                <h2 class="section-title">Un interlocuteur unique, du brief à la mise en ligne.</h2>
+            </div>
+            <div class="about-grid">
+                <div class="fade-in">
+                    <p>Étudiant en Master 2 d'expertise comptable en alternance, j'aide en parallèle les indépendants et petites entreprises à se doter d'un site web professionnel, rapide et bien pensé.</p>
+                    <p>Mon approche est simple : pas d'agence intermédiaire, pas de devis à rallonge, pas de surfacturation. Je conçois, je code, je livre. Vous restez maître de votre site.</p>
+                </div>
+                <div class="about-stats fade-in">
+                    <div class="stat">
+                        <div class="stat-num">3 sem.</div>
+                        <div class="stat-label">Délai moyen</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">Sur-mesure</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">0€</div>
+                        <div class="stat-label">Hébergement / an*</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">∞</div>
+                        <div class="stat-label">Modifs possibles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-head fade-in">
+                <div class="section-eyebrow">— Services</div>
+                <h2 class="section-title">Trois formules claires.<br>Une seule promesse&nbsp;: <em>la qualité.</em></h2>
+                <p class="section-intro">Que vous lanciez une activité, modernisiez votre image ou construisiez votre crédibilité en ligne, voici comment je peux vous aider.</p>
+            </div>
+ 
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-num">01 / Essentiel</div>
+                    <h3>Landing page</h3>
+                    <p>Une page unique, percutante, qui présente votre activité et convertit vos visiteurs en clients.</p>
+                    <div class="service-price">
+                        <small>À partir de</small>
+                        590 €
+                    </div>
+                    <ul class="service-features">
+                        <li>1 page longue & responsive</li>
+                        <li>Formulaire de contact</li>
+                        <li>Référencement de base</li>
+                        <li>Livraison en 7 jours</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Choisir cette formule →</a>
+                </article>
+ 
+                <article class="service-card featured">
+                    <div class="service-num">02 / Recommandé</div>
+                    <h3>Site vitrine</h3>
+                    <p>4 à 6 pages pour présenter en détail votre entreprise, vos services et vos réalisations.</p>
+                    <div class="service-price">
+                        <small>À partir de</small>
+                        1 290 €
+                    </div>
+                    <ul class="service-features">
+                        <li>Jusqu'à 6 pages personnalisées</li>
+                        <li>Design sur-mesure</li>
+                        <li>SEO optimisé</li>
+                        <li>Livraison en 2 à 3 semaines</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Choisir cette formule →</a>
+                </article>
+ 
+                <article class="service-card">
+                    <div class="service-num">03 / Complet</div>
+                    <h3>Vitrine & Blog</h3>
+                    <p>Un site complet avec un espace de publication pour partager vos actualités et renforcer votre SEO.</p>
+                    <div class="service-price">
+                        <small>À partir de</small>
+                        1 990 €
+                    </div>
+                    <ul class="service-features">
+                        <li>Site vitrine complet</li>
+                        <li>Espace blog éditable</li>
+                        <li>SEO avancé & analytics</li>
+                        <li>Livraison en 3 à 4 semaines</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Choisir cette formule →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="methode">
+        <div class="container">
+            <div class="section-head fade-in">
+                <div class="section-eyebrow">— Méthode</div>
+                <h2 class="section-title">Une méthode en quatre temps, pensée pour vous faire <em>gagner du temps</em>.</h2>
+            </div>
+ 
+            <div class="method-grid">
+                <div class="step fade-in">
+                    <div class="step-num">— Étape 01</div>
+                    <h4>Brief</h4>
+                    <p>Échange de 30 minutes pour comprendre votre activité, vos objectifs et votre cible. Devis envoyé sous 24h.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-num">— Étape 02</div>
+                    <h4>Maquette</h4>
+                    <p>Je conçois une première version visuelle. Vous validez l'orientation ou demandez des ajustements.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-num">— Étape 03</div>
+                    <h4>Développement</h4>
+                    <p>Mise en code, intégration des contenus, optimisation mobile et tests sur tous les navigateurs.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-num">— Étape 04</div>
+                    <h4>Mise en ligne</h4>
+                    <p>Connexion au nom de domaine, déploiement, formation rapide pour les modifications de votre côté.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq-grid">
+                <div class="fade-in">
+                    <div class="section-eyebrow">— Questions fréquentes</div>
+                    <h2 class="section-title">Tout ce que vous voulez savoir <em>avant de commencer</em>.</h2>
+                    <p class="section-intro" style="margin-top: 24px;">Une question qui n'apparaît pas ici ? Écrivez-moi directement, je réponds sous 24h.</p>
+                </div>
+ 
+                <div class="faq-list fade-in">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Combien de temps pour livrer mon site&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">Entre 7 jours pour une landing page et 4 semaines pour un site complet avec blog. Le délai dépend principalement de votre réactivité sur la validation des étapes et de la réception de vos contenus (textes, photos).</div>
+                    </div>
+ 
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Et si je n'ai ni textes ni photos&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">Pas de problème. Je peux rédiger les textes à partir d'un brief simple et utiliser des banques d'images professionnelles libres de droits. Pour des photos de votre activité, je peux aussi vous recommander un photographe local.</div>
+                    </div>
+ 
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Pourrai-je modifier mon site moi-même&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">Oui. Selon la formule, vous disposez soit d'une interface simple pour modifier vos textes et images, soit d'un espace blog complet. Je vous forme à l'utilisation lors de la livraison, et vous recevez un guide écrit.</div>
+                    </div>
+ 
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Quels sont les coûts récurrents&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">L'hébergement est gratuit la première année. Ensuite, comptez environ 12 € / an pour le nom de domaine. Aucun autre frais caché, aucun engagement de maintenance forcée.</div>
+                    </div>
+ 
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Le site sera-t-il bien référencé sur Google&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">Tous mes sites sont optimisés SEO dès la livraison (balises, vitesse, mobile-first, structure sémantique). Pour un référencement local fort, prévoyez 2 à 3 mois après la mise en ligne et idéalement une stratégie de contenu via le blog.</div>
+                    </div>
+ 
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Et si je veux ajouter une fonctionnalité plus tard&nbsp;?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">Tout est prévu pour évoluer. Ajout de pages, formulaires personnalisés, prise de rendez-vous en ligne, paiement, multilingue : on en discute, je vous fais un devis additionnel transparent.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <div class="container">
+        <section class="contact" id="contact">
+            <div class="section-eyebrow" style="margin-top: 20px;">— Contact</div>
+            <h2>Un projet de site&nbsp;? <em>Parlons-en.</em></h2>
+            <p>Décrivez-moi votre besoin en quelques lignes. Je reviens vers vous sous 24h avec une première estimation, sans engagement.</p>
+            <div class="contact-actions">
+                <a href="mailto:matteo59600@gmail.com?subject=Projet%20de%20site%20web" class="btn btn-primary">matteo59600@gmail.com</a>
+                <a href="#" class="btn btn-ghost">Prendre rendez-vous</a>
+            </div>
+        </section>
+    </div>
+ 
+    <div class="container">
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">Mattéo</div>
+                    <p class="footer-tagline">Création de sites web sur-mesure pour indépendants, artisans et petites entreprises.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="#works">Réalisations</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#methode">Méthode</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto:matteo59600@gmail.com">matteo59600@gmail.com</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 Mattéo — Conçu et codé à la main, en France.</div>
+                <div>Made with ✦</div>
+            </div>
+        </footer>
+    </div>
+ 
+    <script>
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+ 
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                menuToggle.classList.remove('active');
+            });
+        });
+ 
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+ 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+ 
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+ 
+</body>
+</html>
+ 
